@@ -1,0 +1,159 @@
+.login__container {
+	width: 100%;
+	height: 91.9vh;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	box-sizing: border-box;
+	background: linear-gradient(
+		45deg,
+		rgba(0, 25, 31, 1) 0%,
+		rgba(38, 51, 64, 1) 100%
+	);
+}
+
+.well {
+	flex-grow: 1;
+	max-width: 40%;
+	height: 70vh;
+	margin: 0 auto;
+	text-align: center;
+	box-shadow: none;
+	background: #fff;
+	box-shadow: 0px 6px 60px 0px rgba(38, 51, 64, 0.08);
+	border: none;
+	border-radius: 10px;
+	padding: 80px 60px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.well h2 {
+	font-size: 35px;
+	font-weight: 800;
+	margin-top: -5%;
+	margin-bottom: 40px;
+	color: #263340;
+	letter-spacing: 3px;
+}
+
+.form-group {
+	position: relative;
+	margin-top: 25px;
+	margin-bottom: 20px;
+}
+
+.form-group label {
+	font-weight: 300;
+	color: #262626;
+	position: absolute;
+	top: 50%;
+	left: 0;
+	transform: translateY(-50%);
+	transition: all 0.2s ease-in-out;
+}
+
+.form-group input[type="text"].form-control,
+.form-group input[type="password"].form-control,
+.form-group input[type="email"].form-control {
+	height: 48px;
+	width: 20vw;
+	background: none;
+	border-radius: 0;
+	box-shadow: none;
+	font-weight: 300;
+	color: #263340;
+	padding-left: 20%;
+	padding-right: 15%;
+	font-size: 16px;
+	border: none;
+	border-bottom: 1px solid #ddd;
+	transition: all 0.1s ease-in-out;
+	position: relative;
+	z-index: 2;
+}
+
+.form-group input[type="text"].form-control:focus,
+.form-group input[type="password"].form-control:focus,
+.form-group input[type="email"].form-control:focus,
+.form-group input[type="text"].form-control:active,
+.form-group input[type="password"].form-control:active,
+.form-group input[type="email"].form-control:active {
+	outline: none;
+	box-shadow: none;
+	border: none;
+}
+
+.form-group input[type="text"].form-control:active + label,
+.form-group input[type="password"].form-control:active + label,
+.form-group input[type="email"].form-control:active + label,
+.form-group input[type="text"].form-control:focus + label,
+.form-group input[type="password"].form-control:focus + label,
+.form-group input[type="email"].form-control:focus + label,
+.form-group input[type="text"].form-control.active + label,
+.form-group input[type="password"].form-control.active + label,
+.form-group input[type="email"].form-control.active + label {
+	color: #717e88;
+	font-size: 11px;
+	top: -10px;
+	transform: none;
+}
+
+.form-group input[type="text"].form-control:active ~ .input-border,
+.form-group input[type="password"].form-control:active ~ .input-border,
+.form-group input[type="email"].form-control:active ~ .input-border,
+.form-group input[type="text"].form-control:focus ~ .input-border,
+.form-group input[type="password"].form-control:focus ~ .input-border,
+.form-group input[type="email"].form-control:focus ~ .input-border,
+.form-group input[type="text"].form-control.active ~ .input-border,
+.form-group input[type="password"].form-control.active ~ .input-border,
+.form-group input[type="email"].form-control.active ~ .input-border {
+	width: 100%;
+}
+
+.form-group .input-border {
+	display: block;
+	width: 0%;
+	height: 1px;
+	background: #262626;
+	transition: all 0.2s ease-in-out;
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 3;
+	margin: 0 auto;
+}
+
+.btn {
+	font-size: 12px;
+	text-transform: uppercase;
+	font-weight: 700;
+	padding: 14px 40px;
+	min-width: 170px;
+	border: none;
+	border-radius: 30px;
+	background: #262626;
+	transition: all 0.2s ease-in-out;
+	margin-top: 30px;
+	color: #f4f4f4;
+	cursor: pointer;
+}
+
+.btn:hover,
+.btn:focus,
+.btn:active {
+	background: #262626;
+	border: none;
+	outline: none;
+}
+
+.helper-text {
+	font-size: 12px;
+	font-weight: 300;
+	margin-top: 20px;
+	color: #9aa4ab;
+}

@@ -1,0 +1,16 @@
+{% extends 'tasks/base.html' %} {% load static %} {% block content %}
+<div class="home__body flex-away">
+	<section class="home__sectionOne flex-center">
+		<image
+			src="{% static 'tasks/images/todo.svg' %}"
+			alt="todo"
+			class="home__logo"
+		/>
+	</section>
+	<section class="home__sectionTwo flex-center">
+		<h1 class="home__phrase">We remember what you tend to forget.</h1>
+		<h1 class="home__heading">To-Do List</h1>
+		<a href="{% url 'login' %}" class="home__button" class="home__btn_text">Continue</a>
+	</section>
+</div>
+{% endblock content %}

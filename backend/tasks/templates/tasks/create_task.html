@@ -1,0 +1,21 @@
+{% extends 'tasks/base.html' %} 
+{% load static %} 
+{% block content %}
+<div class="ct__body">
+	<div class="ct__container">
+		<h1>Create Tasks</h1>
+		{% if messages %} 
+			{% for message in messages %}
+				<h4>{{ message }}</h4>
+			{% endfor %} 
+		{% endif %}
+		<form method="POST">
+			{% csrf_token %}
+			<input type="text" name="title" placeholder="Title" />
+			<textarea name="content" placeholder="Content" rows="4" cols="40"></textarea>
+			<input type="date" name="deadline" placeholder="date" />
+			<input type="submit" name="submit" value="submit" />
+		</form>
+	</div>
+</div>
+{% endblock content %}

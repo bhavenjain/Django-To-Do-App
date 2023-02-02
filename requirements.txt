@@ -1,0 +1,11 @@
+django
+djangorestframework
+pyyaml
+pillow
+requests
+django-cors-headers
+mysqlclient
+django-environ
+crispy-bootstrap5
+django-crispy-forms
+requests

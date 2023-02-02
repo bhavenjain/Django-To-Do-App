@@ -1,0 +1,37 @@
+{% extends 'tasks/base.html' %} {% load static %} {% block extrahead %}
+<link rel="stylesheet" href="{% static 'users/css/login.css' %}" />
+{% endblock %} {% block content %}
+<div class="login__container">
+	<div class="well">
+		<h2>Sign Up</h2>
+		{% if messages %}
+				{% for message in messages %}
+					<h4>{{ message }}</h4>
+				{% endfor %}
+		{% endif %}
+		<form class="material-form" method="POST">
+			{% csrf_token %}
+			<div class="form-group">
+				<input type="text" class="form-control" name="username" />
+				<label>Username</label>
+				<span class="input-border"></span>
+			</div>
+			<div class="form-group">
+				<input type="email" class="form-control" name="email" />
+				<label>Email</label>
+				<span class="input-border"></span>
+			</div>
+			<div class="form-group">
+				<input type="password" class="form-control" name="password" />
+				<label>Password</label>
+				<span class="input-border"></span>
+			</div>
+			<button type="submit" class="btn btn-primary btn-lg">Submit</button>
+			<p class="helper-text">
+				Already have an account?
+				<a href="{% url 'login' %}">Sign In</a> here.
+			</p>
+		</form>
+	</div>
+</div>
+{% endblock %}

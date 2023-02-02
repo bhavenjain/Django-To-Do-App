@@ -1,0 +1,46 @@
+{% extends 'tasks/base.html' %} {% load static %} {% block content %}
+<div class="tasks__body flex-away">
+	<div class="tasks__container">
+		<h1 class="tasks__heading">My Tasks</h1>
+		{% if tasks %} 
+			<h2>{{tasks}}</h2>
+			{% for task in tasks %}
+				<div class="tasks__task_body">
+					<div class="tasks__title">
+						<h3>{{ task.title }}</h3>
+						<h4>{{ task.deadline }}</h4>
+					</div>
+					<p>{{task.content}}</p>
+					<div>
+						<p>
+							Status:
+							<span class="tasks__status"
+								>{{task.completion_status}}</span
+							>
+						</p>
+
+						<form method="POST" class="status_form">
+							{% csrf_token %} 
+							<div class="task__form">
+								<div>
+									<input type="hidden" name="task_id" value="{{task.id}}" />
+									{% if task.completion_status == "Incomplete" %}
+										<input type="submit" value="Mark completed" name="Mark" />
+									{% endif %}
+								</div>
+								<div>
+										<input type="submit" value="Delete" name="Delete" />
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			{% endfor %}
+		{% else %}
+				<h2>Create a task to see</h2>
+				<a href="{% url 'create-task' %}">Create Task</a>
+
+		{% endif %}
+	</div>
+</div>
+{% endblock content %}

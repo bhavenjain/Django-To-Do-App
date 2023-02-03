@@ -33,13 +33,14 @@ def get_all_tasks(request, *args, **kwargs):
 # get a certain task
 @api_view(["GET"])
 def get_task(request, task_id, *args, **kwargs):
+    print(task_id)
     instance = Task.objects.filter(pk=task_id).first()
     data = {}
     if instance:
         data = TaskSerializer(instance).data
     else:
         return HttpResponse(status=404)
-    return Response()
+    return Response(data)
 
 # Post Routes
 
@@ -73,7 +74,31 @@ def update_task(request, *args, **kwargs):
             task_obj.save()
         except Exception as e:
             return Response({'status': 500, 'message': e})
-        
+    
+    
+    
+# Update the completion status 
+@api_view(["POST"])
+def updated_tasks(request, *args, **kwargs):
+    task_id = request.GET.get('task_id')
+    data = request.data
+    title = data['title']
+    content = data['content']
+    deadline = data['deadline']
+    if task_id:
+        try:
+            task_obj = Task.objects.filter(pk = task_id).first()
+            task_obj.title = title
+            task_obj.content = content
+            task_obj.deadline = deadline
+            task_obj.save()
+        except Exception as e:
+            return Response({'status': 500, 'message': e})
+    return Response({'status': 200})
+    
+    
+    
+
 
 # Update the completion status 
 @api_view(["DELETE"])

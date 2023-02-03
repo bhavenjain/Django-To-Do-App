@@ -3,7 +3,6 @@
 	<div class="tasks__container">
 		<h1 class="tasks__heading">My Tasks</h1>
 		{% if tasks %} 
-			<h2>{{tasks}}</h2>
 			{% for task in tasks %}
 				<div class="tasks__task_body">
 					<div class="tasks__title">
@@ -26,6 +25,7 @@
 									<input type="hidden" name="task_id" value="{{task.id}}" />
 									{% if task.completion_status == "Incomplete" %}
 										<input type="submit" value="Mark completed" name="Mark" />
+										<input type="submit" value="Update" name="update" />
 									{% endif %}
 								</div>
 								<div>
